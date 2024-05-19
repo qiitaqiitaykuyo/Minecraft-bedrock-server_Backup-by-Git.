@@ -4,6 +4,7 @@ CurrentDir=`pwd`
 
 if (id minecraft) ;then exit 1 ;fi
 if [ -d /opt/MC_Manage ] ;then exit 2 ;fi
+if [ -d /opt/minecraft ] ;then exit 3 ;fi
 
 sudo apt install tar unzip curl wget tmux git -y
 
@@ -61,4 +62,9 @@ sudo bash -c 'for file in `find /opt/MC_Manage/ -maxdepth 1 -type f` ;do sed -i 
 
 sudo systemctl daemon-reload
 
+
+sudo -i -u minecraft bash "/opt/MC_Manage/Scripts/download.sh"
+
+
+exit 0
 
