@@ -1,0 +1,18 @@
+Properties="/opt/MC_Manage/Properties"
+git init "$Properties"
+
+cat << __EOF__ > "$Properties/.git/config"
+[user]
+     name = Minecraft Server
+    email = MinecraftServer@mydomain.com
+__EOF__
+
+git -C "$Properties" config --local gc.reflogExpire "never"
+git -C "$Properties" config --local gc.reflogExpireUnreachable "never"
+git -C "$Properties" config --local gc.pruneExpire "1.hours.ago"
+
+git -C "$Properties" commit --allow-empty --allow-empty-message -m ''
+git -C "$Properties" commit --amend --allow-empty --allow-empty-message --no-edit
+
+git -C "$Properties" reflog delete HEAD@{1} $(git -C "$Properties" branch --show-current)@{1}
+

@@ -1,0 +1,9 @@
+Port1=19132
+Port2=19133
+
+sudo su -c "cat << '__EOF__' > '/etc/ufw/applications.d/Minecraft'
+[Minecraft]
+title=Minecraft
+description=Minecraft UDP Port
+ports=$Port1,$Port2/udp
+__EOF__"

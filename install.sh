@@ -52,7 +52,7 @@ sudo -i -u minecraft bash "./Scripts/Minecraft/git_delete.bash"
 sudo -i -u minecraft bash "./Scripts/Minecraft/check.sh"
 
 
-sudo bash -c 'for file in /opt/MC_Manage/* ;do sed -i -e "s/\r//g" "$file" ;done'
+sudo bash -c 'for file in /opt/MC_Manage/* ;do (sed -i -e "s/\r//g" "$file") 2> /dev/null && echo $[++i].OK ;done '
 
 sudo systemctl daemon-reload
 

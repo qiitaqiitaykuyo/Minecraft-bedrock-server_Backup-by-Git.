@@ -1,0 +1,18 @@
+World_Backup="/opt/MC_Manage/World_Backup"
+git init "$World_Backup"
+
+cat << __EOF__ > "$World_Backup/.git/config"
+[user]
+     name = Minecraft Server
+    email = MinecraftServer@mydomain.com
+__EOF__
+
+git -C "$World_Backup" config --local gc.reflogExpire "never"
+git -C "$World_Backup" config --local gc.reflogExpireUnreachable "3.days"
+git -C "$World_Backup" config --local gc.pruneExpire "1.hours.ago"
+
+git -C "$World_Backup" commit --allow-empty --allow-empty-message -m ''
+git -C "$World_Backup" commit --amend --allow-empty --allow-empty-message --no-edit
+
+git -C "$World_Backup" reflog delete HEAD@{1} $(git -C "$World_Backup" branch --show-current)@{1}
+
