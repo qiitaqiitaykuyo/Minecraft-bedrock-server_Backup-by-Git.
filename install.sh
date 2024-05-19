@@ -40,7 +40,7 @@ bash "./Scripts/USER/.bash_aliases"
 bash "./Scripts/USER/.bashrc"
 
 
-sudo cp -r "$CurrentDir/Scripts/Minecraft" "/opt/MC_Manage/Scripts"
+sudo cp -rf "$CurrentDir/Scripts/Minecraft" "/opt/MC_Manage/Scripts"
 sudo chown -R $New_USER:$New_GROUP "/opt/MC_Manage/Scripts/"
 
 sudo -i -u minecraft bash "/opt/MC_Manage/Scripts/Properties"
@@ -57,7 +57,7 @@ sudo -i -u minecraft bash "/opt/MC_Manage/Scripts/git_delete.bash"
 sudo -i -u minecraft bash "/opt/MC_Manage/Scripts/check.sh"
 
 
-sudo bash -c 'for file in /opt/MC_Manage/* ;do (sed -i -e "s/\r//g" "$file") 2> /dev/null && echo $[++i].OK ;done '
+sudo bash -c 'for file in `find /opt/MC_Manage/ -maxdepth 1 -type f` ;do sed -i -e "s/\r//g" "$file" && echo $[++i].OK ;done'
 
 sudo systemctl daemon-reload
 
