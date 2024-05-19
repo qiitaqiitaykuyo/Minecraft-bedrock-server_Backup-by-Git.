@@ -12,5 +12,3 @@ DIR=/opt/MC_Manage ;A=0 ;if : ;then
   [ -e $DIR/git_delete.bash ] || eval 'A=1 ;echo "not exist \"git_delete.bash\". Please create it."'
   [ "$A" = "0" ] && echo "OK. All files exist."
 fi
-
-for file in /opt/MC_Manage/* ;do sed -i -e 's/\r//g' "$file" ;done
