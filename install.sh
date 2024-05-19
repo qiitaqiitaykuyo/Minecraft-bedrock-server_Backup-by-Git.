@@ -1,5 +1,8 @@
 #!/bin/bash
 
+if (id minecraft) ;then exit 1 ;fi
+if [ -d /opt/MC_Manage ] ;then exit 2 ;fi
+
 sudo apt install tar unzip curl wget tmux git -y
 
 New_USER=minecraft
