@@ -1,5 +1,7 @@
 #!/bin/bash
 
+CurrentDir=`pwd`
+
 if (id minecraft) ;then exit 1 ;fi
 if [ -d /opt/MC_Manage ] ;then exit 2 ;fi
 
@@ -38,18 +40,21 @@ bash "./Scripts/USER/.bash_aliases"
 bash "./Scripts/USER/.bashrc"
 
 
-sudo -i -u minecraft bash "./Scripts/Minecraft/Properties"
-sudo -i -u minecraft bash "./Scripts/Minecraft/World_Backup"
-sudo -i -u minecraft bash "./Scripts/Minecraft/.bash_profile"
-sudo -i -u minecraft bash "./Scripts/Minecraft/mc_env.bash"
-sudo -i -u minecraft bash "./Scripts/Minecraft/variable.bash"
-sudo -i -u minecraft bash "./Scripts/Minecraft/mc_tmux.bash"
-sudo -i -u minecraft bash "./Scripts/Minecraft/nonstop_save.bash"
-sudo -i -u minecraft bash "./Scripts/Minecraft/backup_props.bash"
-sudo -i -u minecraft bash "./Scripts/Minecraft/backup_worlds.bash"
-sudo -i -u minecraft bash "./Scripts/Minecraft/restore_world.bash"
-sudo -i -u minecraft bash "./Scripts/Minecraft/git_delete.bash"
-sudo -i -u minecraft bash "./Scripts/Minecraft/check.sh"
+sudo cp -r "$CurrentDir/Scripts/Minecraft" "/opt/MC_Manage/Scripts"
+sudo chown -R $New_USER:$New_GROUP "/opt/MC_Manage/Scripts/"
+
+sudo -i -u minecraft bash "/opt/MC_Manage/Scripts/Properties"
+sudo -i -u minecraft bash "/opt/MC_Manage/Scripts/World_Backup"
+sudo -i -u minecraft bash "/opt/MC_Manage/Scripts/.bash_profile"
+sudo -i -u minecraft bash "/opt/MC_Manage/Scripts/mc_env.bash"
+sudo -i -u minecraft bash "/opt/MC_Manage/Scripts/variable.bash"
+sudo -i -u minecraft bash "/opt/MC_Manage/Scripts/mc_tmux.bash"
+sudo -i -u minecraft bash "/opt/MC_Manage/Scripts/nonstop_save.bash"
+sudo -i -u minecraft bash "/opt/MC_Manage/Scripts/backup_props.bash"
+sudo -i -u minecraft bash "/opt/MC_Manage/Scripts/backup_worlds.bash"
+sudo -i -u minecraft bash "/opt/MC_Manage/Scripts/restore_world.bash"
+sudo -i -u minecraft bash "/opt/MC_Manage/Scripts/git_delete.bash"
+sudo -i -u minecraft bash "/opt/MC_Manage/Scripts/check.sh"
 
 
 sudo bash -c 'for file in /opt/MC_Manage/* ;do (sed -i -e "s/\r//g" "$file") 2> /dev/null && echo $[++i].OK ;done '
