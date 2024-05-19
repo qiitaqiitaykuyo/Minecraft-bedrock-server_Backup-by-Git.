@@ -1,0 +1,32 @@
+sudo su -c 'cat << __EOF__ > "/etc/systemd/system/minecraft.service"
+[Unit]
+Description=Minecraft Service
+Wants=network.target
+After=network.target
+
+[Service]
+Type=forking
+
+ProtectHome=true
+ProtectSystem=full
+PrivateDevices=true
+NoNewPrivileges=true
+InaccessibleDirectories=/root /home /sys /srv /media -/lost+found
+ReadWriteDirectories=/opt/minecraft
+WorkingDirectory=/opt/minecraft
+
+ExecStart=+/usr/bin/setpriv --reuid=$(/usr/bin/id -u minecraft) --regid=$(/usr/bin/id -g minecraft) --init-groups /opt/MC_Manage/start.sh
+ExecStartPost=+/usr/bin/bash /opt/MC_Manage/backup.sh
+ExecReload=+/usr/bin/bash -c "/usr/bin/setpriv --reuid=minecraft --regid=minecraft --init-groups /usr/bin/env XDG_RUNTIME_DIR=/run/user/$(/usr/bin/id -u minecraft) /usr/bin/systemctl --user stop nonstop_save.timer && /usr/bin/bash /opt/MC_Manage/backup.sh"
+ExecStop=+/usr/bin/setpriv --reuid=$(/usr/bin/id -u minecraft) --regid=$(/usr/bin/id -g minecraft) --init-groups /usr/bin/bash -c "/usr/bin/env XDG_RUNTIME_DIR=/run/user/$(/usr/bin/id -u minecraft) /usr/bin/systemctl --user stop nonstop_save.timer; exit 0"
+ExecStop=+/usr/bin/setpriv --reuid=$(/usr/bin/id -u minecraft) --regid=$(/usr/bin/id -g minecraft) --init-groups /opt/MC_Manage/stop.sh
+
+TimeoutStartSec=20
+TimeoutStopSec=600
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+
+__EOF__'
+
