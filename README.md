@@ -11,8 +11,17 @@ cd ~/minecraft.git
 sudo bash install.sh  
 ```  
   
+Minecraft Server の起動＆接続＆終了  
+```  
+sudo systemctl start minecraft  
+MC tmux a      # 切断：[Ctrl B] → [D]  
+sudo systemctl stop minecraft  
+```  
+  
 アンインストール  
 ```  
+sudo systemctl stop minecraft; sudo systemctl disable minecraft  
+sudo rm "/etc/systemd/system/minecraft.service"  
 sudo loginctl disable-linger minecraft  
 sudo shutdown -r now  
   
