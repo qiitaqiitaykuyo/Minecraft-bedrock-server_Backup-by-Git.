@@ -15,6 +15,7 @@ Minecraft Server の起動＆接続＆終了
 ```  
 # usepriv='setpriv --reuid="$runas" --regid="$runas" --init-groups env XDG_RUNTIME_DIR=/run/user/$(id -u "$runas")'; 
 # runas=minecraft eval "sudo $usepriv systemctl --user --no-pager" &>/dev/null
+# [[ $? == 0 ]] && sudo loginctl enable-linger minecraft
 sudo systemctl start minecraft
 MC tmux a      # 切断：[Ctrl B] → [D]
 sudo systemctl stop minecraft
