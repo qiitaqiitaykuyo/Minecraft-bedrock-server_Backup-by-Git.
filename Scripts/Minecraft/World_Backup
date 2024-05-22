@@ -1,3 +1,4 @@
+#!/bin/bash
 World_Backup="/opt/MC_Manage/World_Backup"
 git init "$World_Backup"
 

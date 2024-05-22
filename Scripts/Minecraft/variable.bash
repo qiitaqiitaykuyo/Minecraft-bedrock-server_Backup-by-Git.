@@ -1,3 +1,4 @@
+#!/bin/bash
 cat << '__EOF__' > "/opt/MC_Manage/variable.bash"
 #!/bin/bash
 export Mine_DIR Worlds_DIR Script_Path Props_Bak_DIR Worlds_Bak_DIR

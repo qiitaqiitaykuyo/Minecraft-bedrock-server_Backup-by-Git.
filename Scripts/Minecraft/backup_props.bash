@@ -1,3 +1,4 @@
+#!/bin/bash
 cat << '__EOF__' > "/opt/MC_Manage/backup_props.bash"
 #!/bin/bash
 if [ ! -v MC_EnvCheck_INIT ] && [ -f "/opt/MC_Manage/mc_env.bash" ]; then

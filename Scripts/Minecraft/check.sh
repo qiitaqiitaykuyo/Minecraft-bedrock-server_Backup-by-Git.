@@ -1,3 +1,4 @@
+#!/bin/bash
 DIR=/opt/MC_Manage ;A=0 ;if : ;then
   [ -e $DIR/start.sh ] || eval 'A=1 ;echo "not exist \"start.sh\". Please create it."'
   [ -e $DIR/backup.sh ] || eval 'A=1 ;echo "not exist \"backup.sh\". Please create it."'

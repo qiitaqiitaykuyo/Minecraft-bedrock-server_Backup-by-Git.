@@ -1,3 +1,4 @@
+#!/bin/bash
 sudo su -c "cat << '__EOF__' > \"/opt/MC_Manage/backup.sh\"
 "'#!/bin/bash''
 BK_INTERVAL=2h

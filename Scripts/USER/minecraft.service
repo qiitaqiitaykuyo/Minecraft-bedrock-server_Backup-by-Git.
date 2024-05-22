@@ -1,3 +1,4 @@
+#!/bin/bash
 sudo su -c 'cat << __EOF__ > "/etc/systemd/system/minecraft.service"
 [Unit]
 Description=Minecraft Service

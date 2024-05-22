@@ -1,3 +1,4 @@
+#!/bin/bash
 cat << '__EOF__' > "/opt/MC_Manage/mc_env.bash"
 #!/bin/bash
 # profile evoker

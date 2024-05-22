@@ -1,3 +1,4 @@
+#!/bin/bash
 Properties="/opt/MC_Manage/Properties"
 git init "$Properties"
 

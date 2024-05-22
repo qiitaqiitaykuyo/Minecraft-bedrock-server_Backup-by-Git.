@@ -1,3 +1,4 @@
+#!/bin/bash
 cat << '__EOF__' > ~/AcceptMC.bash
 #!/bin/bash
 # 詳細を入力
