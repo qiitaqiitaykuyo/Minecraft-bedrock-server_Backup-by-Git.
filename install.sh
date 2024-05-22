@@ -20,6 +20,8 @@ sudo adduser --system \
              --group \
              $New_USER
 
+usepriv='setpriv --reuid="$runas" --regid="$runas" --init-groups env XDG_RUNTIME_DIR=/run/user/$(id -u "$runas")';
+runas="$New_USER" eval "sudo $usepriv systemctl --user --no-pager" &>/dev/null
 sudo loginctl enable-linger $New_USER
 
 sudo mkdir -p "/opt/MC_Manage/"{"Properties","World_Backup"}
