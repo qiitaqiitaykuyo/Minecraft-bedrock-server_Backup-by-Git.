@@ -1,4 +1,5 @@
-if [ "$(grep -E '\s*. ~/.bash_aliases'$ ~/.bashrc | sed '2,$d;s/^\s*//')" != ". ~/.bash_aliases" ]
+#!/bin/bash
+if [[ "$(grep -E '\s*. ~/.bash_aliases'$ ~/.bashrc | sed '$!d;s/^\s*//')" != ". ~/.bash_aliases" ]]
 then
   echo "describe .bash_aliases"
   cat << '__EOF__' >> ~/.bashrc

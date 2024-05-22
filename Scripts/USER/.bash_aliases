@@ -1,3 +1,4 @@
+#!/bin/bash
 cat << '__EOF__' >> ~/.bash_aliases
 function MC () {
   unset Arguments
