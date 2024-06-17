@@ -13,8 +13,9 @@ sudo bash install.sh
   
 アップデート
 ```
-cd ~/minecraft.git
-bash update.sh
+cd ~/minecraft.git  
+cp -f "./Scripts/Update/update_1.sh" "./update.sh"  
+bash update.sh  
 ```  
   
 Minecraft Server の起動＆接続＆終了  
