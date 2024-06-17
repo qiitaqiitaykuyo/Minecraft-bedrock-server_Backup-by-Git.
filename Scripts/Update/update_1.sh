@@ -2,7 +2,7 @@
 updateDIR="$(dirname -- $(realpath -- "${BASH_SOURCE[0]:-$0}"))"
 baseDIR="${updateDIR%/Scripts/Update}"
 
-find "$baseDIR" -xdev -depth ! \( -name . -or -name "update.sh" \) -exec rm -df {} +
+find "$baseDIR" -xdev -depth ! -name "update.sh" -and ! -name "minecraft.git" -exec rm -df {} +
 
 git clone --depth 1 "https://github.com/qiitaqiitaykuyo/Minecraft-bedrock-server_Backup-by-Git..git" "$baseDIR/.minecraft.git"
 
