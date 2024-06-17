@@ -8,7 +8,7 @@ if [ -d /opt/MC_Manage ] ;then exit 2 ;fi
 if [ -d /opt/minecraft ] ;then exit 3 ;fi
 
 if [[ ! -f "$baseDIR/update.sh" ]]; then 
-  cp "$baseDIR/Scripts/Update/update_1.sh" "$baseDIR/update.sh" 
+  cp "$baseDIR/Scripts/Update/update.sh" "$baseDIR/update.sh" 
 fi
 
 sudo apt install tar unzip curl wget tmux git -y
