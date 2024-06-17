@@ -24,6 +24,7 @@ sudo adduser --system \
              --group \
              $New_USER
 
+sudo -i -u "$New_USER" systemctl start dbus --user
 usepriv='setpriv --reuid="$runas" --regid="$runas" --init-groups env XDG_RUNTIME_DIR=/run/user/$(id -u "$runas")';
 runas="$New_USER" eval "sudo $usepriv systemctl --user --no-pager" &>/dev/null
 

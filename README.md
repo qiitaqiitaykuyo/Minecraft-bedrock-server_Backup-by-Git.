@@ -19,9 +19,11 @@ bash update.sh
   
 Minecraft Server の起動＆接続＆終了  
 ```  
+# sudo -i -u minecraft systemctl start dbus --user
 # usepriv='setpriv --reuid="$runas" --regid="$runas" --init-groups env XDG_RUNTIME_DIR=/run/user/$(id -u "$runas")'; 
 # runas=minecraft eval "sudo $usepriv systemctl --user --no-pager" &>/dev/null
 # [[ $? == 0 ]] && sudo loginctl enable-linger minecraft
+  
 sudo systemctl start minecraft
 MC tmux a      # 切断：[Ctrl B] → [D]
 sudo systemctl stop minecraft
@@ -34,8 +36,10 @@ sudo rm "/etc/systemd/system/minecraft.service"
 sudo loginctl disable-linger minecraft
 sudo shutdown -r now  
   
+  
 Del_USER=minecraft ;Del_GROUP=minecraft
 sudo deluser --system --remove-all-file --backup-to ~/ "$Del_USER"
+  
 # sudo delgroup --system --only-if-empty "$Del_GROUP"
 # sudo rm -rf /opt/MC_Manage /opt/minecraft
 # rm -rf ~/minecraft.tar.gz
