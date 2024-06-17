@@ -11,6 +11,12 @@ cd ~/minecraft.git
 sudo bash install.sh
 ```  
   
+アップデート
+```
+cd ~/minecraft.git
+bash update.sh
+```  
+  
 Minecraft Server の起動＆接続＆終了  
 ```  
 # usepriv='setpriv --reuid="$runas" --regid="$runas" --init-groups env XDG_RUNTIME_DIR=/run/user/$(id -u "$runas")'; 
