@@ -1,7 +1,10 @@
 #!/bin/bash
 updateDIR="$(dirname -- $(realpath -- "${BASH_SOURCE[0]:-$0}"))"
-echo "$updateDIR"
-echo "${updateDIR%/Scripts/Update}"
+download="/opt/MC_Manage/Scripts/download.sh"
 
+echo "$download"
+echo "/opt/minecraft"
+
+sudo -i -u minecraft bash "$download"
 
 echo Updated.
