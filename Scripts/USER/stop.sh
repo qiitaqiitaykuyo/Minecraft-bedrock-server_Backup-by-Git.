@@ -12,7 +12,7 @@ fi
 mc_save commit unnecessary
 
 /usr/bin/tmux send -t minecraft stop ENTER
-/bin/sleep 10
+/bin/sleep 20
 /usr/bin/tmux kill-session -t minecraft
 
 if [ "`type -t backup_worlds`" != "function" ]; then
