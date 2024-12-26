@@ -16,5 +16,9 @@ git clone --depth 1 "https://github.com/qiitaqiitaykuyo/Minecraft-bedrock-server
 
 \cp -TRf "$baseDIR/.minecraft.git" "$baseDIR"
 
+sudo \cp -TRf "$baseDIR/Scripts/Minecraft/" "/opt/MC_Manage/Scripts/"
+sudo bash -c 'for file in `find "/opt/MC_Manage/Scripts/" -maxdepth 1 -type f` ;do sed -i -e "s/\r//g" "$file" ;done'
+sudo chown -R minecraft:minecraft "/opt/MC_Manage/Scripts/"
+
 find "$baseDIR" -type f -name "update_2.sh" -exec bash -- {} +
 
