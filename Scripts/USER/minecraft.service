@@ -22,8 +22,8 @@ ExecReload=+/usr/bin/bash -c "/usr/bin/setpriv --reuid=minecraft --regid=minecra
 ExecStop=+/usr/bin/setpriv --reuid=$(/usr/bin/id -u minecraft) --regid=$(/usr/bin/id -g minecraft) --init-groups /usr/bin/bash -c "/usr/bin/env XDG_RUNTIME_DIR=/run/user/$(/usr/bin/id -u minecraft) /usr/bin/systemctl --user stop nonstop_save.timer; exit 0"
 ExecStop=+/usr/bin/setpriv --reuid=$(/usr/bin/id -u minecraft) --regid=$(/usr/bin/id -g minecraft) --init-groups /opt/MC_Manage/stop.sh
 
-TimeoutStartSec=20
-TimeoutStopSec=600
+TimeoutStartSec=30
+TimeoutStopSec=630
 Restart=on-failure
 
 [Install]
