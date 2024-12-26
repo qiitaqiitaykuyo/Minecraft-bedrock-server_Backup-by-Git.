@@ -33,10 +33,10 @@ function mc_save () {
   while [ "$EXITCODE" -ne "0" ]; do
    ((TRY_COUNT++))
     /usr/bin/tmux send -t minecraft "save query" ENTER
-    sleep 1
+    sleep 5
     grep "Data saved. Files are now ready to be copied." <(tail -30 "$Mine_DIR/Result.log") > /dev/null 2>&1
     EXITCODE=$?
-    if [ "$TRY_COUNT" -eq "20" ]; then break; fi
+    if [ "$TRY_COUNT" -eq "120" ]; then break; fi
   done
 
   if [ "${1}_${2}" != "commit_unnecessary" ]; then
