@@ -65,11 +65,11 @@ sudo -i -u minecraft bash "/opt/MC_Manage/Scripts/restore_world.bash"
 sudo -i -u minecraft bash "/opt/MC_Manage/Scripts/git_delete.bash"
 sudo -i -u minecraft bash "/opt/MC_Manage/Scripts/check.sh"
 
-sudo -i -u minecraft bash "/opt/MC_Manage/Scripts/download.sh"
-
 sudo systemctl daemon-reload
 
 sudo loginctl enable-linger $New_USER
+
+sudo -i -u minecraft bash "/opt/MC_Manage/Scripts/download.sh"
 
 
 exit 0
