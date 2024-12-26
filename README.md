@@ -39,7 +39,7 @@ sudo shutdown -r now
   
   
 Del_USER=minecraft ;Del_GROUP=minecraft
-sudo deluser --system --remove-all-file --backup-to ~/ "$Del_USER"
+sudo deluser --system --remove-home --backup-to ~/ "$Del_USER"
   
 # sudo delgroup --system --only-if-empty "$Del_GROUP"
 # sudo rm -rf /opt/MC_Manage /opt/minecraft
