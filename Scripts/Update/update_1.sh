@@ -21,10 +21,7 @@ sudo bash -c 'for file in `find "/opt/MC_Manage/Scripts/" -maxdepth 1 -type f` ;
 sudo chown -R minecraft:minecraft "/opt/MC_Manage/Scripts/"
 
 ### Create function file from bash script. ###
-sudo -i -u minecraft bash "/opt/MC_Manage/Scripts/Properties"
-sudo -i -u minecraft bash "/opt/MC_Manage/Scripts/World_Backup"
 sudo -i -u minecraft bash "/opt/MC_Manage/Scripts/mc_env.bash"
-sudo -i -u minecraft bash "/opt/MC_Manage/Scripts/.bash_profile"
 sudo -i -u minecraft bash "/opt/MC_Manage/Scripts/variable.bash"
 sudo -i -u minecraft bash "/opt/MC_Manage/Scripts/mc_tmux.bash"
 sudo -i -u minecraft bash "/opt/MC_Manage/Scripts/nonstop_save.bash"
