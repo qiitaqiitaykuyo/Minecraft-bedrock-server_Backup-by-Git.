@@ -18,3 +18,11 @@ git clone --depth 1 "https://github.com/qiitaqiitaykuyo/Minecraft-bedrock-server
 \cp -fRT "$baseDIR/.minecraft.git" "$baseDIR"
 
 find "$baseDIR" -type f -name "update_2.sh" -exec bash -- {} +
+ExitCode="$?"
+
+[[ "${BASH_SOURCE[0]}" = "${0}" ]] && EscCMD="exit" || EscCMD="return"
+alias 'goto'="$EscCMD "
+alias ':eof'="$ExitCODE"
+shopt -s expand_aliases
+
+{ \cp -f "$baseDIR/Scripts/Update/update_1.sh" "$baseDIR/update.sh" && goto :eof || goto :eof }
