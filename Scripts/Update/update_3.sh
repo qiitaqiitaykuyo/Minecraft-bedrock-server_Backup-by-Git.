@@ -8,4 +8,4 @@ echo "directory: /opt/minecraft"
 
 sudo -i -u minecraft bash "$download"
 
-echo Updated.
+echo Updated.; exit 3245
