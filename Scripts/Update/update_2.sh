@@ -9,7 +9,7 @@ echo "directory: /opt/MC_Manage"
 
 ### Script update. ###
 sudo \cp -fRT "$baseDIR/Scripts/Minecraft/" "/opt/MC_Manage/Scripts/"
-sudo bash -c 'for file in `find "/opt/MC_Manage/Scripts/" -maxdepth 1 -type f` ;do sed -i -e "s/\r//g" "$file"; echo "/opt/MC_Manage/Scripts/$file" ;done'
+sudo bash -c 'for file in `find "/opt/MC_Manage/Scripts/" -maxdepth 1 -type f` ;do sed -i -e "s/\r//g" "$file"; echo "$file" ;done'
 sudo chown -R minecraft:minecraft "/opt/MC_Manage/Scripts/"
 
 ### Create function file from bash script. ###
