@@ -3,6 +3,9 @@ updateDIR="$(dirname -- $(realpath -- "${BASH_SOURCE[0]:-$0}"))"
 baseDIR="${updateDIR%/Scripts/Update}"
 if [[ -z "${baseDIR:+'UNDEF -> Null'}" ]];then echo error; exit 1 ;fi
 
+echo -n $'\n'
+echo "/opt/MC_Manage"
+
 ### Script update. ###
 sudo \cp -fRT "$baseDIR/Scripts/Minecraft/" "/opt/MC_Manage/Scripts/"
 sudo bash -c 'for file in `find "/opt/MC_Manage/Scripts/" -maxdepth 1 -type f` ;do sed -i -e "s/\r//g" "$file" ;done'
