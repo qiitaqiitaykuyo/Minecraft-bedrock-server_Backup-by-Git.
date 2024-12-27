@@ -6,7 +6,8 @@ baseDIR="${updateDIR%/Scripts/Update}"
 dirNAME="$(basename "$baseDIR")"
 
 echo -n $'\n'
-echo "$baseDIR"
+echo "In the process of Update 1"
+echo "directory: $baseDIR"
 
 if [[ -v baseDIR ]]; then
   find "$baseDIR" -xdev -depth ! -name "update.sh" -and ! -name "$dirNAME" -exec rm -df {} +
@@ -17,4 +18,3 @@ git clone --depth 1 "https://github.com/qiitaqiitaykuyo/Minecraft-bedrock-server
 \cp -fRT "$baseDIR/.minecraft.git" "$baseDIR"
 
 find "$baseDIR" -type f -name "update_2.sh" -exec bash -- {} +
-

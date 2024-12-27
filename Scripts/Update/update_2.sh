@@ -4,7 +4,8 @@ baseDIR="${updateDIR%/Scripts/Update}"
 if [[ -z "${baseDIR:+'UNDEF -> Null'}" ]];then echo error; exit 1 ;fi
 
 echo -n $'\n'
-echo "/opt/MC_Manage"
+echo "In the process of Update 2"
+echo "directory: /opt/MC_Manage"
 
 ### Script update. ###
 sudo \cp -fRT "$baseDIR/Scripts/Minecraft/" "/opt/MC_Manage/Scripts/"
