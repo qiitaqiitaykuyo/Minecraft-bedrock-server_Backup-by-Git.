@@ -25,4 +25,4 @@ alias 'goto'="$EscCMD "
 alias ':eof'="$ExitCODE"
 shopt -s expand_aliases
 
-{ \cp -f "$baseDIR/Scripts/Update/update_1.sh" "$baseDIR/update.sh" && goto :eof || goto :eof }
+{ \cp -vf "$baseDIR/Scripts/Update/update_1.sh" "$baseDIR/update.sh" && goto :eof || goto :eof }
