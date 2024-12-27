@@ -8,4 +8,10 @@ echo "directory: /opt/minecraft"
 
 sudo -i -u minecraft bash "$download"
 
-echo Updated.; exit 3245
+echo Updated.
+
+# "update_2.sh" の最後のコマンドが `bash "$updateDIR/update_3.sh"`
+# であるため、このファイルの終了コードが "update.sh" の `ExitCODE="$?"`
+# に渡される。ただし、`find -exec bash -- {} +` で "update_2.sh" を
+# 実行しているため、find によって 0 以外のすべての終了コードは 1 に変換される
+exit 0
