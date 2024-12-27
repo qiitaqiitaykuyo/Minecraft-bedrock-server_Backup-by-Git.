@@ -1,7 +1,8 @@
 #!/bin/bash -u
 set -o nounset
 
-updateDIR="$(dirname -- $(realpath -- "${BASH_SOURCE[0]:-$0}"))"
+scriptDIR="$(dirname -- $(realpath -- "${BASH_SOURCE[0]:-$0}"))"
+updateDIR="$scriptDIR/Scripts/Update"
 baseDIR="${updateDIR%/Scripts/Update}"
 dirNAME="$(basename "$baseDIR")"
 
@@ -17,7 +18,11 @@ git clone --depth 1 "https://github.com/qiitaqiitaykuyo/Minecraft-bedrock-server
 
 \cp -fRT "$baseDIR/.minecraft.git" "$baseDIR"
 
-find "$baseDIR" -type f -name "update_2.sh" -exec bash -- {} +
+# `-exec {} +` はファイルをまとめて実行する；グループ実行
+# 複数 update_2.sh があっても実行されるのは最初に見つかったものだけになる
+#（２番目以降のものは、最初に見つかったものの引数になる）
+#（`-exec {} \;` はファイルを１つずつ実行する；単体実行）
+find "$updateDIR" -type f -name "update_2.sh" -exec bash -- {} +
 ExitCODE="$?"
 
 [[ "${BASH_SOURCE[0]}" = "${0}" ]] && EscCMD="exit" || EscCMD="return"
@@ -25,4 +30,5 @@ alias 'goto'="$EscCMD "
 alias ':eof'="$ExitCODE"
 shopt -s expand_aliases
 
-{ \cp -vf "$baseDIR/Scripts/Update/update_1.sh" "$baseDIR/update.sh" && goto :eof || goto :eof; }
+# 最後の ; を忘れないように
+{ \cp -vf "$updateDIR/update_1.sh" "$baseDIR/update.sh" && goto :eof || goto :eof; }
