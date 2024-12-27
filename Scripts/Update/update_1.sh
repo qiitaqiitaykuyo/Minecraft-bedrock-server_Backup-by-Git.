@@ -3,7 +3,7 @@ set -o nounset
 
 scriptDIR="$(dirname -- $(realpath -- "${BASH_SOURCE[0]:-$0}"))"
 updateDIR="$scriptDIR/Scripts/Update"
-baseDIR="${updateDIR%/Scripts/Update}"
+baseDIR="${scriptDIR%/Scripts/Update}"
 dirNAME="$(basename "$baseDIR")"
 
 echo -n $'\n'
