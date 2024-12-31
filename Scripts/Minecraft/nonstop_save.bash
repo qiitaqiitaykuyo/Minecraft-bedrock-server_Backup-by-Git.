@@ -23,17 +23,23 @@ function mc_save () {
     return 0
   fi
 
+  # Proceed 30 lines forward for "save query".
+  /usr/bin/tmux send -t minecraft "help" ENTER
+  /usr/bin/tmux send -t minecraft "help" ENTER
+  /usr/bin/tmux send -t minecraft "help" ENTER
+  /usr/bin/tmux send -t minecraft "? ?" ENTER
+
   /usr/bin/tmux send -t minecraft "save resume" ENTER
   sleep 1
-
   /usr/bin/tmux send -t minecraft "save hold" ENTER
   sleep 1
 
   EXITCODE=1 ; TRY_COUNT=0
+  /usr/bin/tmux send -t minecraft "save hold" ENTER
   while [ "$EXITCODE" -ne "0" ]; do
    ((TRY_COUNT++))
     /usr/bin/tmux send -t minecraft "save query" ENTER
-    sleep 5
+    sleep 3
     grep "Data saved. Files are now ready to be copied." <(tail -30 "$Mine_DIR/Result.log") > /dev/null 2>&1
     EXITCODE=$?
     if [ "$TRY_COUNT" -eq "120" ]; then break; fi
