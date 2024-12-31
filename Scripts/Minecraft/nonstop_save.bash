@@ -25,8 +25,8 @@ function mc_save () {
 
   # Proceed 30 lines forward for "save query".
   /usr/bin/tmux send -t minecraft "help" ENTER
-  /usr/bin/tmux send -t minecraft "help" ENTER
-  /usr/bin/tmux send -t minecraft "help" ENTER
+  /usr/bin/tmux send -t minecraft "? ?" ENTER
+  /usr/bin/tmux send -t minecraft "? ?" ENTER
   /usr/bin/tmux send -t minecraft "? ?" ENTER
 
   /usr/bin/tmux send -t minecraft "save resume" ENTER
