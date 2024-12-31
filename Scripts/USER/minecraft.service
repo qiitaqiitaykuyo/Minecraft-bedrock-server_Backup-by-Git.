@@ -23,7 +23,7 @@ ExecStop=+/usr/bin/setpriv --reuid=$(/usr/bin/id -u minecraft) --regid=$(/usr/bi
 ExecStop=+/usr/bin/setpriv --reuid=$(/usr/bin/id -u minecraft) --regid=$(/usr/bin/id -g minecraft) --init-groups /opt/MC_Manage/stop.sh
 
 TimeoutStartSec=30
-TimeoutStopSec=630
+TimeoutStopSec=390
 Restart=on-failure
 
 [Install]
