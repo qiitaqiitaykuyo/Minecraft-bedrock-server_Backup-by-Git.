@@ -36,7 +36,7 @@ function mc_save () {
   sleep 1
 
   EXITCODE=1 ; TRY_COUNT=0
-  /usr/bin/tmux send -t minecraft "save hold" ENTER
+  /usr/bin/tmux send -t minecraft "save hold" ENTER; sleep 0.8
   while [ "$EXITCODE" -ne "0" ]; do
    ((TRY_COUNT++))
     /usr/bin/tmux send -t minecraft "save query" ENTER
